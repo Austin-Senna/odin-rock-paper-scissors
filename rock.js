@@ -2,9 +2,6 @@ let humanScore = 0
 let computerScore = 0
 let roundCount = 1
 
-// const rockButton = Document.querySelector("#rock")
-// const paperButton = Document.querySelector("#paper")
-// const scissorsButton = Document.querySelector("#scissors")
 const container = document.querySelector(".container")
 const ulList = document.querySelector("ul")
 const title = document.querySelector("h1")
@@ -68,12 +65,10 @@ function printWinner() {
     if (humanScore > computerScore) {
         title.textContent = "You won against computer :)"
         body.classList.toggle('win')
-        title.classList.toggle('win')
    }
    else if (humanScore< computerScore) {
         title.textContent = "You lost against computer !"
         body.classList.toggle('lose')
-        title.classList.toggle('lose')
    }
 }
 
