@@ -1,0 +1,95 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+ul, li {
+    list-style: none;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.lose {
+    background-color: black;
+    color:red;
+}
+
+.win {
+    background-color: lightgreen;
+}
+
+.choice {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    display:flex;
+    flex-wrap: wrap;
+    gap:20px;
+    width:70%;
+    justify-content: center;
+}
+
+li {
+    width: 250px;
+    padding: 30px;
+    border: black 2px solid;
+    background-color: beige;
+    border-radius: 30px;
+    text-align: center;
+}
+
+li:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+#rock {
+    background-color: darkgoldenrod;
+    color:white;
+    padding:12px;
+}
+#rock:hover {
+    transform: scale(1.2);
+    transition: 0.2s;
+    background-color: saddlebrown;
+}
+
+#paper {
+    background-color:aliceblue;
+    color: black;
+    padding: 12px;
+}
+#paper:hover {
+    transform: scale(1.2);
+    transition: 0.2s;
+    color:white;
+    background-color: rgb(170, 210, 217);
+}
+
+#scissors {
+    background-color: goldenrod;
+    color:white;
+    padding:12px;
+}
+#scissors:hover {
+    transform: scale(1.2);
+    transition: 0.2s;
+    color:white;
+    background-color: yellowgreen;
+}

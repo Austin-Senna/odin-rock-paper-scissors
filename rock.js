@@ -1,5 +1,14 @@
 let humanScore = 0
 let computerScore = 0
+let roundCount = 1
+
+// const rockButton = Document.querySelector("#rock")
+// const paperButton = Document.querySelector("#paper")
+// const scissorsButton = Document.querySelector("#scissors")
+const container = document.querySelector(".container")
+const ulList = document.querySelector("ul")
+const title = document.querySelector("h1")
+const body = document.querySelector("body")
 
 function randomInt(min,max) {
     return Math.floor(Math.random()*(max-min + 1)) + min
@@ -18,21 +27,17 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let x; 
-    while (x != "rock" && x != "paper" &&  x!= "scissors"){
-        x = prompt("Your choice (rock/paper/scissors): ").toLowerCase()
-    }
-    return x
-}
+const choiceList = document.querySelector(".choice")
+choiceList.addEventListener("click", (event) => (humanScore <5 && computerScore<5) ? playRound(event.target.id) : printWinner())
 
-function playRound(n) {
-    let human = getHumanChoice()
+function playRound(humanChoice) {
+    let human = humanChoice
     let computer = getComputerChoice()
     let win;
     
+
     if (human == computer) {
-        alert(`Tie!`)
+
     }
     else if (human == "rock") {
         computer == "paper" ? win ="c": win = "h" 
@@ -43,33 +48,32 @@ function playRound(n) {
     else {
         computer =="rock" ? win = "c" : win = "h"
     }
-    
     if (win =="c") {
-        alert(`Computer won with ${computer}!`)
         computerScore ++
     }
     else if (win == "h") {
-        alert(`You won against computer's ${computer}!`)
         humanScore ++
     } 
-
-    alert(`Round ${n}: 
-    H : ${humanScore} --- C: ${computerScore}`)
+    
+    const newRoundList = document.createElement("li")
+    newRoundList.innerHTML = `Round ${roundCount}: `
+    newRoundList.innerHTML += `You picked ${human}!
+    Computer picked ${computer}!`
+    newRoundList.innerHTML += `<br> <br>Computer : ${computerScore} || Human : ${humanScore} `
+    ulList.appendChild(newRoundList)
+    roundCount ++
 }
 
-function playGame(){
-    for (var i = 1; i<=5; i ++) {
-        playRound(i)
-    }
+function printWinner() {
     if (humanScore > computerScore) {
-        alert("You won against computer!")
-    }
-    else if (humanScore< computerScore) {
-        alert("You lost against computer!")
-    }
-    else {
-        alert("You tied with computer!")
-    }
+        title.textContent = "You won against computer :)"
+        body.classList.toggle('win')
+        title.classList.toggle('win')
+   }
+   else if (humanScore< computerScore) {
+        title.textContent = "You lost against computer !"
+        body.classList.toggle('lose')
+        title.classList.toggle('lose')
+   }
 }
 
-playGame()
